@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.4.2.RELEASE'
+		springBootVersion = '2.7.18'
 	}
 	repositories {
 		mavenCentral()
@@ -10,6 +10,7 @@ buildscript {
 	}
 }
 
+plugins { id 'com.github.ben-manes.versions' version '0.51.0' }
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -22,16 +23,26 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+repositories {
+    mavenCentral()
+}
 	mavenCentral()
 }
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-data-rest')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile 'org.springframework.data:spring-data-rest-webmvc:2.5.4.RELEASE'
-	compile 'org.hibernate:hibernate-core:5.2.5.Final'
-	runtime('mysql:mysql-connector-java')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	implementation('org.springframework.boot:spring-boot-starter-data-rest')
+	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+	implementation 'org.springframework.data:spring-data-rest-webmvc'
+	implementation 'org.hibernate:hibernate-core'
+	runtimeOnly('mysql:mysql-connector-java')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
+
+
+
+
+
+
+

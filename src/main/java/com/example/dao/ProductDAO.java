@@ -8,10 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 import com.example.model.Product;
 
-public interface ProductDAO {
-	public void saveProduct(Product product);
+public interface ProductDAO extends CrudRepository<Product, Long> {
 
-	public List<Product> getAllProducts();
-
-	public List<Product> searchProductIgnoreCase(String name);
+    @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))")
+    List<Product> searchProductIgnoreCase(@Param("name") String name);
 }

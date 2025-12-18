@@ -2,7 +2,6 @@ package com.example.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.dao.ProductDAO;
@@ -12,8 +11,11 @@ import com.example.service.ProductService;
 @Component
 public class ProductServiceImpl implements ProductService {
 	
-	@Autowired
-	private ProductDAO productDAO;
+	private final ProductDAO productDAO;
+
+	public ProductServiceImpl(ProductDAO productDAO) {
+		this.productDAO = productDAO;
+	}
 
 	@Override
 	public void saveProduct(Product product) {
