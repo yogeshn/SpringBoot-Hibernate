@@ -7,11 +7,11 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@PropertySource("application.properties")
+@PropertySource("classpath:application.properties")
 public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);			
+		SpringApplication.run(Application.class, args);
 	}
 
 }

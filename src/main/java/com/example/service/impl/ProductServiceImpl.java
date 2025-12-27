@@ -3,13 +3,13 @@ package com.example.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.example.dao.ProductDAO;
 import com.example.model.Product;
 import com.example.service.ProductService;
 
-@Component
+@Service
 public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getAllProducts() {
-		return (List<Product>) productDAO.getAllProducts();
+		return productDAO.getAllProducts();
 	}
 
 	@Override
