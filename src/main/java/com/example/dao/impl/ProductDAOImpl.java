@@ -11,9 +11,6 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by akila on 12/4/16.
- */
 @Repository
 @Transactional
 public class ProductDAOImpl implements ProductDAO {
