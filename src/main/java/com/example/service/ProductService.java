@@ -7,7 +7,7 @@ import javax.validation.Valid;
 
 public interface ProductService {
 
-	void saveProduct(@Valid Product product);
+	void saveProduct(Product product);
 
 	List<Product> getAllProducts();
 
