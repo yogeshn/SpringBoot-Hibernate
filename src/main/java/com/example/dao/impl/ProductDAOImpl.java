@@ -30,13 +30,13 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Product> getAllProducts() {
-        return entityManager.createQuery("from Product").getResultList();
+        return entityManager.createQuery("from Product", Product.class).getResultList();
     }
 
     @Override
     public List<Product> searchProductIgnoreCase(String name) {
         if(name != null) {
-            return entityManager.createQuery("from Product where lower(productName) like :pName")
+            return entityManager.createQuery("from Product where lower(productName) like :pName", Product.class)
                     .setParameter("pName", name.toLowerCase() + "%")
                     .getResultList();
         } else {
